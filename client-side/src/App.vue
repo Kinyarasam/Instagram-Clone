@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="bg-gray-100 overflow-hidden h-screen">
     <TopBar/>
-  <div class="flex justify-center bg-gray-100">
-    <Home />
-  </div>
+    <div class="flex justify-center bg-gray-100 scrollbar">
+      <Home />
+    </div>
   </div>
 </template>
 

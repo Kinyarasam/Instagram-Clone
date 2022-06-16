@@ -1,5 +1,5 @@
 <template>
-    <div class="p-2 pt-0 border-b">
+    <div class="p-2 pt-0 border-b bg-white">
         <div class="h-8">
             <div class="flex justify-between items-center">
                 <div class="flex text-xs items-center text-light pt-1.5 cursor-default">
