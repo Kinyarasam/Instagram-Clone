@@ -2,7 +2,7 @@
     <div>
         <div class="grid grid-cols-2 gap-5">
             <div class="pt-8 scrollbar h-screen">
-                <div class="py-2 bg-white border shadow-xs rounded-xl w-[450px]">
+                <div class="py-2 bg-white border shadow-xs rounded-xl w-[450px] ">
                     <div class="overflow-x-scroll scrollbar scrollbar-thumb-rounded flex items-center px-2">
                         <div
                             class=""
@@ -11,7 +11,7 @@
                         
                         >
                             <div class="m-2 flex flex-col items-center">
-                                <div class="flex items-center overflow-hidden justify-center p-8 border-2 border-t-purple-600/70 border-x-rose-500/70 border-b-yellow-400/70 w-16 h-16 rounded-full">
+                                <div class="hover:cursor-pointer flex items-center overflow-hidden justify-center p-8 border-2 border-t-purple-600/70 border-x-rose-500/70 border-b-yellow-400/70 w-16 h-16 rounded-full">
                                     <div class="text-white w-14 border-teal-900 flex items-center justify-center h-14 p-4 bg-teal-900 rounded-full  ">
                                         <img 
                                             src="" 
@@ -57,7 +57,7 @@
                                 alt="PROFILE LOGO">
                         </div>
                         <div class="mx-4 text-sm">
-                            <div class="font-semibold">kinyarasam</div>
+                            <div class="font-semibold cursor-pointer">kinyarasam</div>
                             <div class="text-gray-400">Sam.G.K</div>
                         </div>
                     </div>
@@ -72,6 +72,25 @@
                             See All
                         </div>
                     </div>
+                    <div class="mt-1">
+                        <div 
+                            v-for="(recom, i) in recommendations"
+                            :key="i"
+                        >
+                            <div class="flex justify-between items-center my-2">
+                                <div class="flex items-center">
+                                    <div class="bg-black p-4 w-6 h-6 rounded-full overflow-hidden cursor-pointer"></div>
+                                    <div class="mx-3 ">
+                                        <div class="font-semibold text-sm hover:underline cursor-pointer flex">{{ recom.username }}</div>
+                                        <div class="text-xs text-gray-500">{{ recom.follows}}</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="cursor-pointer text-blue-400 text-xs font-semibold">Follow</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -83,6 +102,13 @@
 export default {
     data () {
         return {
+            recommendations: [
+                {image: 'url', username: 'Random Person', follows: 'Follows you', followBack: 'Follow'},
+                {image: 'url', username: 'Person 2', follows: 'Followed by fri...', followBack: 'Follow'},
+                {image: 'url', username: 'Person 3', follows: 'Followed by Vibes + 1 more', followBack: 'Follow'},
+                {image: 'url', username: 'Person 4', follows: 'Follows you', followBack: 'Follow'},
+                {image: 'url', username: 'Person 5', follows: 'Follows by Celest + 4 more', followBack: 'Follow'},
+            ],
             name: [
                 {src: 'Hello There'},
                 {src: 'Hello There'},
