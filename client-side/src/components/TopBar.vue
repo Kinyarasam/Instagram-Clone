@@ -33,23 +33,23 @@
             </div>
             <div class="flex items-center">
                 <router-link to="/new">
-                    <span class="mx-2 material-icons">home</span>
+                    <span class="mx-2 material-icons text-white bg-black rounded-full outline-black">home</span>
+                </router-link>
+                <router-link to="/chats">
+                    <span class="mx-2 material-icons">chat</span>
                 </router-link>
                 <div>
-                    <span class="mx-2 material-icons">chat</span>
+                    <span class="mx-2 material-icons border-2 border-black rounded">add</span>
                 </div>
-                <div>
-                    <span class="mx-2 material-icons p border-2 border-black rounded">add</span>
-                </div>
-                <div>
+                <router-link to="/explore">
                     <span class="mx-2 material-icons">explore</span>
-                </div>
-                <div>
+                </router-link>
+                <router-link to="/activity">
                     <span class="mx-2 material-icons">favorite_border</span>
-                </div>
-                <div class="min-w-8 p-4 min-h-8 bg-teal-400 rounded-full">
-                    <img src="" alt="">
-                </div>
+                </router-link>
+                <router-link to="/profile" class="min-w-8 p-4 min-h-8 bg-teal-400 rounded-full">
+                    <!-- <img src="" alt=""> -->
+                </router-link>
             </div>
         </div>
     </div>
