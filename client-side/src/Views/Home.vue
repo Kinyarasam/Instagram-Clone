@@ -48,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            <div class="pt-8 mr-16">
+            <div class="pt-10 mr-16">
                 <div class="flex justify-between items-center">
                     <div class="flex items-center">
                         <div class="cursor-pointer overflow-hidden w-16 h-16 rounded-full p-2 border-2 border-t-purple-500/80 border-x-rose-500/80 border-b-yellow-600/80">
