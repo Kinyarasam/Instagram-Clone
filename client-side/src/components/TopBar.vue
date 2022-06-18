@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="flex justify-between items-center mx-[150px] p-2 pb-0">
-            <router-link to>
+            <router-link to="/">
                 <img 
                     src="../assets/Ig_name_logo.png" alt=""
                     class="h-12 bg-white cursor-pointer"
@@ -32,9 +32,9 @@
                 >
             </div>
             <div class="flex items-center">
-                <div>
+                <router-link to="/new">
                     <span class="mx-2 material-icons">home</span>
-                </div>
+                </router-link>
                 <div>
                     <span class="mx-2 material-icons">chat</span>
                 </div>
