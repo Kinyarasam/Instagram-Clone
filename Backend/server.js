@@ -1,5 +1,8 @@
 const express = require('express')
 const app = express()
+const errorHandler = require('./middleware/errorhandler')
+const userRoute = require('./routes/Users')
+
 
 /* CONNECT TO DB */
 const connectDB = require('./db/connect')
@@ -12,12 +15,19 @@ app.use((req, res, next) => {
 })
 app.use(express.json())
 
-const PORT = process.env.PORT || 5000
+app.use(errorHandler)
+app.use('/users', userRoute)
+
+app.get('/', (req, res) => {
+    res.send('Hello')
+})
+
+const PORT = process.env.PORT || 4000
 
 console.log('Establishing Connection . . .\n')
 const start = async () => {
     try {
-        await connectDB(process.env.MONGO_URI)
+        await connectDB(process.env.MONGO_URI_2)
         console.log('DATABASE connected SUCCESSFULLY ! ! !')
         app.listen(PORT, () => {
             console.log(`\t Server is running on PORT ${PORT} \n\t url: http://localhost:${PORT}`)
@@ -26,5 +36,6 @@ const start = async () => {
         console.log(err)
     }
 }
+
 
 start()
