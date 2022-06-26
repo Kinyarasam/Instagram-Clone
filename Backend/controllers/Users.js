@@ -34,11 +34,11 @@ const createUser = asyncWrapper(async (req, res, next) => {
 })
 
 // UPDATE USER DETAILS
-const updateUser = asyncWrapper(async (req, res, next) => {
+const updateUser = async (req, res, next) => {
     try {
         const { id:userID } = req.params
         const user = await User.findOneAndUpdate({
-            _id:productID
+            _id:userID
         }, req.body, {
             new: true,
             runValidators: true
@@ -46,21 +46,40 @@ const updateUser = asyncWrapper(async (req, res, next) => {
 
         if(!user) {
             return res.status(404).json({
-				msg: `No Product with id: ${ userID }`
+				msg: `No User with id: ${ userID }`
 			})
         }
 
-        res.status(200).json({ product })
+        console.log('UPDATE USER DETAILS \n\n\t\t' + user )
+        res.status(200).json({ user })
     }catch(err) {
         res.status(500)
-            .json({ msg: err })
+        .json({ msg: err })
+        console.log(err)
     }
-    console.log('UPDATE USER DETAILS')
-})
+}
 
 // DELETE USER
 const deleteUser = asyncWrapper(async (req, res, next) => {
-    console.log("DELETE SPECIFIC USER INFO")
+    try{
+        const { id:userID } = req.params
+        const user = await User.findOneAndDelete({
+            _id: userID
+        })
+
+        if(!user) {
+            return res.status(404).json({
+                msg: `No User with id: ${ userID }`
+            })
+        }
+
+        console.log("DELETE SPECIFIC USER INFO")
+        res.status(200).json({ user })
+    }catch(err) {
+        res.status(500)
+            .json({msg : err})
+        console.log(err)
+    }
 })
 
 
