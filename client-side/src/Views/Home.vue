@@ -30,13 +30,26 @@
                     :key="i"
                 >
                     <div class="mt-5 bg-white border rounded-xl">
-                        <div class="flex p-3 items-center border-b rounded-b-xl">
-                            <div class="w-8 h-8 border overflow-hidden rounded-full">
-                                <img 
-                                    src="" 
-                                    alt="">
+                        <div class="flex p-3 justify-between border-b rounded-b-xl">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 border overflow-hidden rounded-full">
+                                    <img 
+                                        src="" 
+                                        alt="">
+                                </div>
+                                <div class="mx-3">
+                                    <div class="font-semibold">
+                                        {{ post.header }}
+                                    </div>
+                                    <div class="text-xs text-[#535353]">
+                                        {{ post.username }}
+                                    </div>
+                                </div>
+
                             </div>
-                            {{ post.header }}
+                            <div>
+                                <span class="material-icons">more_horiz</span>
+                            </div>
                         </div>
                         <div class="h-[400px] border">
                             <img
@@ -44,6 +57,22 @@
                                 src="" 
                                 alt="POST BODY"
                             >
+                        </div>
+                        <div class="p-3">
+                            <div class="flex justify-between">
+                                <div>
+                                    <span class="material-icons">favorite_outline</span>
+                                    <span class="material-icons">comment</span>
+                                    <span class="material-icons">send_outline</span>
+                                </div>
+                                <span class="material-icons">bookmark_outline</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="p-2.5 w-4 h-4 bg-red-900 flex rounded-full"></span> 
+                                <span class="mx-2 text-sm">Liked by ...</span>
+                            </div>
+                            <!-- TODO: Add the caption section here -->
+                            <!-- TODO: Add the comments section here -->
                         </div>
                     </div>
                 </div>
@@ -148,11 +177,11 @@ export default {
                 {src: 'Hello There'},
             ],
             posts: [
-                {header: 'POST HEAD', caption: 'POST CAPTIONS', likes: 200},
-                {header: 'POST HEAD', caption: 'POST CAPTIONS', likes: 200},
-                {header: 'POST HEAD', caption: 'POST CAPTIONS', likes: 200},
-                {header: 'POST HEAD', caption: 'POST CAPTIONS', likes: 200},
-                {header: 'POST HEAD', caption: 'POST CAPTIONS', likes: 200},
+                {header: 'POST 1', username: 'username', caption: 'POST CAPTIONS', likes: 20},
+                {header: 'POST 2', username: 'username', caption: 'POST CAPTIONS', likes: 5},
+                {header: 'POST 3', username: 'username', caption: 'POST CAPTIONS', likes: 35},
+                {header: 'POST 4', username: 'username', caption: 'POST CAPTIONS', likes: 78},
+                {header: 'POST 5', username: 'username', caption: 'POST CAPTIONS', likes: '2K'},
             ]
         }
     }
