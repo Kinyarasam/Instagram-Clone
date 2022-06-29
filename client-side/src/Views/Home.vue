@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="grid grid-cols-2 gap-5">
-            <div class="pt-8 scrollbar h-screen">
-                <div class="py-2 bg-white border shadow-xs rounded-xl w-[450px] ">
+            <div class="pt-8 scrollbar h-screen w-[450px]">
+                <div class="py-2 bg-white border shadow-xs rounded-xl ">
                     <div class="overflow-x-scroll scrollbar scrollbar-thumb-rounded flex items-center px-2">
                         <div
                             class=""
@@ -25,54 +25,69 @@
                         </div>
                     </div>
                 </div>
-                <div 
-                    v-for="(post, i) in posts"
-                    :key="i"
-                >
-                    <div class="mt-5 bg-white border rounded-xl">
-                        <div class="flex p-3 justify-between border-b rounded-b-xl">
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 border overflow-hidden rounded-full">
-                                    <img 
-                                        src="" 
-                                        alt="">
-                                </div>
-                                <div class="mx-3">
-                                    <div class="font-semibold">
-                                        {{ post.header }}
+                <div class="mb-[120px]">
+                    <div 
+                        v-for="(post, i) in posts"
+                        :key="i"
+                    >
+                        <div class="mt-5 bg-white border rounded-xl">
+                            <div class="flex p-3 justify-between border-b rounded-b-xl">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 border overflow-hidden rounded-full">
+                                        <img 
+                                            src="" 
+                                            alt="">
                                     </div>
-                                    <div class="text-xs text-[#535353]">
-                                        {{ post.username }}
+                                    <div class="mx-3">
+                                        <div class="font-semibold">
+                                            {{ post.header }}
+                                        </div>
+                                        <div class="text-xs text-[#535353]">
+                                            {{ post.username }}
+                                        </div>
                                     </div>
+    
                                 </div>
-
-                            </div>
-                            <div>
-                                <span class="material-icons">more_horiz</span>
-                            </div>
-                        </div>
-                        <div class="h-[400px] border">
-                            <img
-                                class="h-full w-full" 
-                                src="" 
-                                alt="POST BODY"
-                            >
-                        </div>
-                        <div class="p-3">
-                            <div class="flex justify-between">
                                 <div>
-                                    <span class="material-icons">favorite_outline</span>
-                                    <span class="material-icons">comment</span>
-                                    <span class="material-icons">send_outline</span>
+                                    <span class="material-icons">more_horiz</span>
                                 </div>
-                                <span class="material-icons">bookmark_outline</span>
                             </div>
-                            <div class="flex items-center">
-                                <span class="p-2.5 w-4 h-4 bg-red-900 flex rounded-full"></span> 
-                                <span class="mx-2 text-sm">Liked by ...</span>
+                            <div class="h-[400px] border">
+                                <img
+                                    class="h-full w-full" 
+                                    src="" 
+                                    alt="POST BODY"
+                                >
                             </div>
-                            <!-- TODO: Add the caption section here -->
-                            <!-- TODO: Add the comments section here -->
+                            <div class="p-3">
+                                <div class="flex justify-between">
+                                    <div>
+                                        <div>
+                                            <span class="material-icons">
+                                                favorite_outline
+                                            </span>
+                                        </div>
+                                        <div class="mx-2">
+                                            <span class="material-icons">comment</span>
+                                        </div>
+                                        <div>
+                                            <span class="material-icons">send_outline</span>
+                                        </div>
+                                    </div>
+                                    <span class="material-icons">bookmark_outline</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class=" my-2 p-2.5 w-4 h-4 bg-red-900 flex rounded-full"></div> 
+                                    <div class="mx-2 text-sm">
+                                        Liked by ... and {{ post.likes }} others
+                                    </div>
+                                </div>
+                                <!-- TODO: Add the caption section here -->
+                                <div class="text-[13.5px] my-2 max-h-10 scrollbar overflow-y-scroll">
+                                    <span class="font-medium">{{post.username}}</span> {{ post.post }}
+                                </div>
+                                <!-- TODO: Add the comments section here -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -177,11 +192,50 @@ export default {
                 {src: 'Hello There'},
             ],
             posts: [
-                {header: 'POST 1', username: 'username', caption: 'POST CAPTIONS', likes: 20},
-                {header: 'POST 2', username: 'username', caption: 'POST CAPTIONS', likes: 5},
-                {header: 'POST 3', username: 'username', caption: 'POST CAPTIONS', likes: 35},
-                {header: 'POST 4', username: 'username', caption: 'POST CAPTIONS', likes: 78},
-                {header: 'POST 5', username: 'username', caption: 'POST CAPTIONS', likes: '2K'},
+                {
+                    header: 'POST 1',
+                    username: 'username',
+                    caption: 'POST CAPTIONS',
+                    likes: 20,
+                    tags: '',
+                    post_image: '',
+                    post: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quaerat labore, temporibus sapiente, eligendi corrupti fuga perferendis totam ducimus facilis veniam ab, consequatur libero molestiae? Quaerat cumque labore ratione voluptatem.Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quaerat labore, temporibus sapiente, eligendi corrupti fuga perferendis totam ducimus facilis veniam ab, consequatur libero molestiae? Quaerat cumque labore ratione voluptatem.'
+                },
+                {
+                    header: 'POST 2',
+                    username: 'username',
+                    caption: 'POST CAPTIONS',
+                    likes: 5,
+                    tags: '',
+                    post_image: ''
+                },
+                {
+                    header: 'POST 3',
+                    username: 'username',
+                    caption: 'POST CAPTIONS',
+                    likes: 35,
+                    tags: '',
+                    post_image: '',
+                    post: ''
+                },
+                {
+                    header: 'POST 4',
+                    username: 'username',
+                    caption: 'POST CAPTIONS',
+                    likes: 78,
+                    tags: '',
+                    post_image: '',
+                    post: ''
+                },
+                {
+                    header: 'POST 5',
+                    username: 'username',
+                    caption: 'POST CAPTIONS',
+                    likes: '2K',
+                    tags: '',
+                    post_image: '',
+                    post: ''
+                },
             ]
         }
     }
