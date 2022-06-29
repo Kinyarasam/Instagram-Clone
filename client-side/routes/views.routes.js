@@ -12,15 +12,15 @@ export default [
         name: 'Login',
         components: {
             default: () =>
-                import ('../src/Views/Home.vue')
+                import ('../src/Views/accounts/Login.vue')
         }
     },
     {
         path: '/accounts/emailsignup',
-        name: 'Login',
+        name: 'SignUp',
         components: {
             default: () =>
-                import ('../src/Views/accounts/Login.vue')
+                import ('../src/Views/accounts/SignUp.vue')
         }
     },
 ]
