@@ -1,15 +1,7 @@
 export default [
     {
-        path: '/',
-        name: 'home',
-        components: {
-            default: () =>
-                import ('../src/Views/Home.vue')
-        }
-    },
-    {
         path: '/accounts/login',
-        name: 'Login',
+        name: 'home',
         components: {
             default: () =>
                 import ('../src/Views/Home.vue')

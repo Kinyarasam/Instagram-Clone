@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="grid grid-cols-2 gap-5">
-            <div class="pt-8 scrollbar h-screen w-[450px]">
+        <div class="flex justify-flex gap-5">
+            <div class="pt-8 scrollbar h-screen max-w-[450px] min-w-[350px]">
                 <div class="py-2 bg-white border shadow-xs rounded-xl ">
                     <div class="overflow-x-scroll scrollbar scrollbar-thumb-rounded flex items-center px-2">
                         <div
@@ -92,7 +92,7 @@
                     </div>
                 </div>
             </div>
-            <div class="pt-10 mr-16">
+            <div class="pt-10 mr-16 hidden md:block">
                 <div class="flex justify-between items-center">
                     <div class="flex items-center">
                         <div class="cursor-pointer overflow-hidden w-16 h-16 rounded-full p-2 border-2 border-t-purple-500/80 border-x-rose-500/80 border-b-yellow-600/80">
