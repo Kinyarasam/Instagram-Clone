@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class=" max-h-screen">
     <div class="w-[350px]">
       <div class="bg-white border border-gray-300 px-10 mt-10 flex flex-col justify-center">
         <div class="flex justify-center mt-8">
@@ -50,43 +50,62 @@
               >
             </div>
           </div>
+          <div class="text-xs text-center text-slate-400">
+            <div class="my-2">
+              People who use our service may have uploaded your contact information to Instagram. <span class="font-medium">Learn More</span> 
+            </div>
+            <div class="my-2">
+              By signing up, you agree to our <span class="font-medium">Terms</span> , <span class="font-medium">Data Policy</span> and <span class="font-medium">Cookies Policy</span> .
+            </div>
+          </div>
+          <div class="mb-8">
+            <button class="w-full bg-blue-200 text-white py-1 rounded flex justify-center items-center">
+              Sign up
+            </button>
+          </div>
         </form>
-        <div>
-          <div>
-            People who use our service may have uploaded your contact information to Instagram. Learn More
-          </div>
-          <div>
-            By signing up, you agree to our <span>Terms</span> , <span>Data Policy</span> and Cookies Policy .
-          </div>
-        </div>
       </div>
       <div class="flex justify-center items-center bg-white mt-2 border border-gray-300">
         <span class="text-[13px] my-5">
-          Don't Have an account?
-          <router-link to="/accounts/emailsignup" class="text-blue-500 font-medium">Sign up</router-link>
+          Have an account?
+          <router-link to="/accounts/login" class="text-blue-500 font-medium">Login</router-link>
         </span>
       </div>
       <div class="flex justify-center items-center text-[13px] my-5">
         Get the app.
       </div>
       <div class="flex justify-center items-center">
-        <div class="text-white p-1 rounded w-full ml-8 mr-1 flex">
+        <div class="text-white p-1 rounded w-full ml-6 mr-1 flex">
           <img src="../../assets/app_Store.png" alt="App Store">
         </div>
-        <div class="text-white p-1 rounded w-full ml-1 mr-8">
+        <div class="text-white p-1 rounded w-full ml-1 mr-6">
           <img src="../../assets/google_Play.png" alt="Google Play">
         </div>
       </div>
-    <div class="border rounded w-[400px] px-5">Sign Up</div>
-    THIS IS THE Sign Up TEMPLATE
-    <router-link to="/accounts/login">Login</router-link>
-  </div>
+      <div class="py-20">
+        footer goes Here
+        <Footer />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
+import Footer from '../../components/Footer.vue'
 
+export default {
+  name: 'SignUp',
+  components:{
+    Footer
+  },
+  data () {
+    return {
+    }
+  },
+  computed: {},
+  methods: {
+
+  }
 }
 </script>
 
