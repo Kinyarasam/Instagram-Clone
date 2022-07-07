@@ -13,13 +13,15 @@
                     <input
                         type="text"
                         placeholder="Phone number, username or email"
+                        v-model="form.user.email"
                         class="text-sm bg-slate-50 py-2 px-1 w-full border rounded active:border-none"
                     >
                 </div>
                 <div class="my-1">
                     <input
-                        type="text"
+                        type="password"
                         placeholder="Password"
+                        v-model="form.user.password"
                         class="text-sm bg-slate-50 py-2 px-1 w-full border rounded active:border-none"
                     >
                 </div>
@@ -67,13 +69,45 @@
 </template>
 
 <script>
+// import Users from '../../../../Backend/models/Users'
+
+import router from '../../../routes'
+
 export default {
     data() {
+        return {
+            form: {
+                user: {
+                    email: '',
+                    password: ''
+                }
+            }
 
+        }
     },
     methods: {
         LoginUser() {
-            alert("Welcome User")
+            // const user = new Users()
+
+            if (this.form.user.email == '' || this.form.user.password == '') {
+                alert("invalid user details")
+            }else {
+                if (this.form.user.email == 'kinyarasam' && this.form.user.password == 'test')
+                {
+                    // const userPassword = this.form.user.password
+                    // const userEmail = this.form.user.email
+        
+                    // console.log(
+                    //     `${user}\n{"email": "${userPassword}"\n
+                    //     "password": "${userEmail}"}`
+                    // )
+                    this.$router.push('/')
+                    alert(`Welcome ${this.form.user.email}` )
+                }else{
+                    this.$router.push('/accounts/emailsignup')
+                    alert(`Unauthorized Access. Kindly create an account`)
+                }
+            }
         }
     }
 
