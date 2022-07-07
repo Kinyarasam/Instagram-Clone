@@ -91,6 +91,10 @@ export default {
 
             if (this.form.user.email == '' || this.form.user.password == '') {
                 alert("invalid user details")
+                
+                // CLEAR THE CONTENTS OF THE FORM
+                this.form.user.email = ''
+                this.form.user.password = ''
             }else {
                 if (this.form.user.email == 'kinyarasam' && this.form.user.password == 'test')
                 {
