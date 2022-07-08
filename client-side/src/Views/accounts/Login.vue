@@ -70,8 +70,7 @@
 
 <script>
 // import Users from '../../../../Backend/models/Users'
-
-import router from '../../../routes'
+import axios from 'axios'
 
 export default {
     data() {
@@ -86,8 +85,10 @@ export default {
         }
     },
     methods: {
-        LoginUser() {
-            // const user = new Users()
+        async LoginUser() {
+            const db = await axios.get('http://localhost:4000/users')
+            let users = db.data.users[0].email
+            console.log(users)
 
             if (this.form.user.email == '' || this.form.user.password == '') {
                 alert("invalid user details")
@@ -96,7 +97,7 @@ export default {
                 this.form.user.email = ''
                 this.form.user.password = ''
             }else {
-                if (this.form.user.email == 'kinyarasam' && this.form.user.password == 'test')
+                if (this.form.user.email == db.data.users.email && this.form.user.password == 'test')
                 {
                     // const userPassword = this.form.user.password
                     // const userEmail = this.form.user.email
@@ -108,13 +109,22 @@ export default {
                     this.$router.push('/')
                     alert(`Welcome ${this.form.user.email}` )
                 }else{
-                    this.$router.push('/accounts/emailsignup')
+                    // this.$router.push('/accounts/emailsignup')
                     alert(`Unauthorized Access. Kindly create an account`)
                 }
             }
-        }
-    }
+        },
+        getUser() {
+            let users = axios.get('http://localhost:4000/user')
 
+            cons
+        }
+    },
+    async mounted() {
+        const auth = await axios.get('http://localhost:4000/users')
+        console.log(auth.data.users)
+
+    }
 }
 </script>
 
