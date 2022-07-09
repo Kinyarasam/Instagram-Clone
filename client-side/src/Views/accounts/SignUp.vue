@@ -24,6 +24,7 @@
             <div class="mt-1.5">
               <input
                 type="text"
+                v-model="email"
                 placeholder="Mobile Number or email"
                 class="w-full rounded border py-2.5 px-2 text-xs bg-slate-50 border-slate-300"
               >
