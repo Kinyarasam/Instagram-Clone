@@ -21,6 +21,7 @@
                     <input
                         type="password"
                         placeholder="Password"
+                        autocomplete="off"
                         v-model="form.user.password"
                         class="text-sm bg-slate-50 py-2 px-1 w-full border rounded active:border-none"
                     >
@@ -86,10 +87,8 @@ export default {
     },
     methods: {
         async LoginUser() {
-            const db = await axios.get('http://localhost:4000/users')
-            let users = db.data.users[0].email
-            console.log(users)
-
+            console.log(`email: ${this.form.user.email}\npassword: ${this.form}`)
+            
             if (this.form.user.email == '' || this.form.user.password == '') {
                 alert("invalid user details")
                 
@@ -97,6 +96,14 @@ export default {
                 this.form.user.email = ''
                 this.form.user.password = ''
             }else {
+                // GET THE CONTENTS PASSED TO THE FORM.
+
+                // VALIDATE THE FORM
+                // VALDATE THE DATA
+                // RESPONSE
+                const db = await axios.get('http://localhost:4000/users')
+                let users = db.data.users[0].email
+                console.log(users)
                 if (this.form.user.email == db.data.users.email && this.form.user.password == 'test')
                 {
                     // const userPassword = this.form.user.password
@@ -120,9 +127,9 @@ export default {
             cons
         }
     },
-    async mounted() {
-        const auth = await axios.get('http://localhost:4000/users')
-        console.log(auth.data.users)
+    mounted() {
+        // const auth = await axios.get('http://localhost:4000/users')
+        // console.log(auth.data.users)
 
     }
 }

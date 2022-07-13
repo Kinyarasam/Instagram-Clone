@@ -24,7 +24,7 @@
             <div class="mt-1.5">
               <input
                 type="text"
-                v-model="email"
+                v-model="form.user.phone_number"
                 placeholder="Mobile Number or email"
                 class="w-full rounded border py-2.5 px-2 text-xs bg-slate-50 border-slate-300"
               >
@@ -33,6 +33,7 @@
               <input
                 type="text"
                 placeholder="Full name"
+                v-model="form.user.name"
                 class="w-full rounded border py-2.5 px-2 text-xs bg-slate-50 border-slate-300"
               >
             </div>
@@ -40,6 +41,7 @@
               <input
                 type="text"
                 placeholder="Username"
+                v-model="form.user.username"
                 class="w-full rounded border py-2.5 px-2 text-xs bg-slate-50 border-slate-300"
               >
             </div>
@@ -47,6 +49,7 @@
               <input
                 type="text"
                 placeholder="Password"
+                v-model="form.user.password"
                 class="w-full rounded border py-2.5 px-2 text-xs bg-slate-50 border-slate-300"
               >
             </div>
@@ -60,7 +63,11 @@
             </div>
           </div>
           <div class="mb-8">
-            <button class="w-full bg-blue-200 text-white py-1 rounded flex justify-center items-center">
+            <button
+              class="w-full bg-blue-200 text-white py-1 rounded flex justify-center items-center"
+              type="submit"
+              @click="CreateUser"
+            >
               Sign up
             </button>
           </div>
@@ -92,6 +99,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import Footer from '../../components/Footer.vue'
 
 export default {
@@ -101,11 +109,29 @@ export default {
   },
   data () {
     return {
+      form: {
+        user: {
+          name: '',
+          phone_number: '',
+          username: '',
+          password: '',
+        }
+      }
     }
   },
   computed: {},
   methods: {
+    CreateUser() {
+      let newUser = {
+        phone_number: this.form.user.phone_number,
+        password: this.form.user.password,
+        username: this.form.user.username,
+        name: this.form.user.name
+      }
 
+      console.log(newUser)
+      axios.post('http://localhost:4000/users', newUser)
+    }
   }
 }
 </script>
