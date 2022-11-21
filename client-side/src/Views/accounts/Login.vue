@@ -87,44 +87,62 @@ export default {
     },
     methods: {
         async LoginUser() {
-            console.log(`email: ${this.form.user.email}\npassword: ${this.form}`)
-            
-            if (this.form.user.email == '' || this.form.user.password == '') {
-                alert("invalid user details")
+            const db = await axios.get('http://localhost:4000/users');
+            // console.log(`email: ${this.form.user.email}\npassword: ${this.form.user.password}`)
+            // console.log(db.data.users[0].name);
+            // if (this.form.user.email == '' || this.form.user.password == '') {
+            //     alert("invalid user details")
                 
-                // CLEAR THE CONTENTS OF THE FORM
-                this.form.user.email = ''
-                this.form.user.password = ''
-            }else {
-                // GET THE CONTENTS PASSED TO THE FORM.
-
-                // VALIDATE THE FORM
-                // VALDATE THE DATA
-                // RESPONSE
-                const db = await axios.get('http://localhost:4000/users')
-                let users = db.data.users[0].email
-                console.log(users)
-                if (this.form.user.email == db.data.users.email && this.form.user.password == 'test')
-                {
-                    // const userPassword = this.form.user.password
-                    // const userEmail = this.form.user.email
+            //     // CLEAR THE CONTENTS OF THE FORM
+            //     this.form.user.email = ''
+            //     this.form.user.password = ''
+            // }else {
+            //     // GET THE CONTENTS PASSED TO THE FORM.
+                
+            //     // VALIDATE THE FORM
+            //     // VALDATE THE DATA
+            //     // RESPONSE
+            //     const db = await axios.get('http://localhost:4000/users')
+            //     // let users = db.data.users[0].email
+            //     // console.log(users)
+            //     if (this.form.user.email == db.data.users[0].email  && this.form.user.password == db.data.users[0].password)
+            //     {
+            //         // const userPassword = this.form.user.password
+            //         // const userEmail = this.form.user.email
         
-                    // console.log(
-                    //     `${user}\n{"email": "${userPassword}"\n
-                    //     "password": "${userEmail}"}`
-                    // )
-                    this.$router.push('/')
-                    alert(`Welcome ${this.form.user.email}` )
-                }else{
-                    // this.$router.push('/accounts/emailsignup')
-                    alert(`Unauthorized Access. Kindly create an account`)
+            //         // console.log(
+            //         //     `${user}\n{"email": "${userPassword}"\n
+            //         //     "password": "${userEmail}"}`
+            //         // )
+            //         this.$router.push('/')
+            //         alert(`Welcome ${this.form.user.email}` )
+            //     }else{
+            //         // this.$router.push('/accounts/emailsignup')
+            //         alert(`Unauthorized Access. Kindly create an account`)
+            //     }
+            // }
+            
+            if (this.form.user.email === '' || this.form.user.password === '') {
+                alert("invalid user details");
+            } else {
+                if (this.form.user.email == db.data.users[0].name && this.form.user.password == db.data.users[0].password) {
+                    alert(`Welcome ${db.data.users[0].name}`);
+                    this.$router.push('/');
                 }
             }
+
+
+            // if (this.form.user.email == 'test' && this.form.user.password == 'test') {
+            // }
+            console.log(this.form.user.email);
+            console.log(this.form.user.password);
+            console.log(db.data.users[0].name);
+            console.log(db.data.users[0].password);
         },
         getUser() {
             let users = axios.get('http://localhost:4000/user')
 
-            cons
+            // cons
         }
     },
     mounted() {
